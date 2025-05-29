@@ -1,9 +1,10 @@
 :root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
+  --kavia-orange: #FFD369;    /* Accent */
+  --kavia-dark: #222831;      /* Primary (background) */
+  --kavia-charcoal: #393E46;  /* Secondary */
+  --text-color: #FFD369;
+  --text-secondary: rgba(255, 211, 105, 0.85);
+  --border-color: #393E46;
 }
 
 body {
