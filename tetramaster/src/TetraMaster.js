@@ -8,15 +8,21 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
  */
 const BOARD_WIDTH = 10;
 const BOARD_HEIGHT = 20;
+
+// Updated modern retro vibrant colors:
 const COLORS = {
-  I: '#f2e9e4', // Accent
-  O: '#E87A41', // Orange (for stronger accent)
-  T: '#4a4e69', // Secondary
-  S: '#72bd77', // Green
-  Z: '#DB4755', // Red
-  J: '#69a2ea', // Blue
-  L: '#FFCA3A', // Yellow
-  empty: "#22223b" // Primary (background)
+  I: '#FFD369',       // Accent (Vivid Yellow)
+  O: '#FF922B',       // Orange Accent for O (Retro orange)
+  T: '#393E46',       // Secondary (Charcoal)
+  S: '#70E000',       // Vibrant neon green
+  Z: '#DA0037',       // Vibrant retro red
+  J: '#00B4D8',       // Bright retro blue
+  L: '#F48C06',       // Bright retro yellow-orange
+  empty: "#222831",   // Primary (dark blue-gray – background)
+  sidebarBg: "#393E46",
+  border: "#FFD369",
+  text: "#FFD369",
+  textSecondary: "rgba(255, 211, 105, 0.7)"
 };
 
 // Each tetromino's shape as (x, y) offset pairs for the 4 rotations.
