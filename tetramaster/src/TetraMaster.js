@@ -352,13 +352,15 @@ function TetraMaster() {
       marginTop: 40,
       fontFamily: "Inter, 'Roboto', Arial, Helvetica, sans-serif"
     }}>
+      {/* Game Board */}
       <div style={{
+        position: 'relative',
         background: COLORS.empty,
         padding: 18,
-        borderRadius: 8,
-        boxShadow: '0 6px 32px #22223bb0',
-        border: '5px solid var(--kavia-orange)',
-        outline: '2px solid #fff2',
+        borderRadius: 14,
+        boxShadow: '0 6px 32px #181e2ea0',
+        border: `4px solid ${COLORS.border}`,
+        outline: `2px solid ${COLORS.sidebarBg}`,
         outlineOffset: '2px',
         display: 'grid',
         gridTemplateRows: `repeat(${BOARD_HEIGHT}, 24px)`,
@@ -372,20 +374,23 @@ function TetraMaster() {
                 width: 22,
                 height: 22,
                 boxSizing: 'border-box',
-                border: cell ? '2px solid #fff6' : '1px solid #3337',
+                border: cell
+                  ? `2px solid ${COLORS.border}`
+                  : `1px solid ${COLORS.sidebarBg}80`,
                 background: cell ? COLORS[cell] : COLORS.empty,
-                borderRadius: cell ? 4 : 0,
+                borderRadius: cell ? 5 : 0,
                 margin: 0,
                 transition: 'background 0.15s'
               }}
             />
           ))
         )}
+        {/* Game Over Overlay */}
         <div style={{
           position: 'absolute',
           top: 0,
           left: 0,
-          color: '#f2e9e4',
+          color: COLORS.accent,
           width: '100%',
           textAlign: 'center',
           fontWeight: 700,
@@ -393,36 +398,66 @@ function TetraMaster() {
           letterSpacing: 2,
           pointerEvents: 'none',
           opacity: gameOver ? 1 : 0,
-          background: gameOver ? 'rgba(34,34,59,0.98)' : 'transparent',
-          borderRadius: 8,
+          background: gameOver ? '#222831f3' : 'transparent',
+          borderRadius: 14,
           height: '100%',
           display: gameOver ? 'flex' : 'none',
           alignItems: 'center',
           justifyContent: 'center',
-          zIndex: 100
+          zIndex: 100,
+          border: gameOver ? `2px solid ${COLORS.border}` : undefined,
         }}>
           GAME OVER<br />
-          <span style={{ fontSize: 18, fontWeight: 400 }}>Score: {score}<br />Press Space or R to Restart</span>
+          <span style={{ fontSize: 18, fontWeight: 400 }}>
+            Score: {score}<br />Press <b>Space</b> or <b>R</b> to Restart
+          </span>
         </div>
       </div>
+      {/* Sidebar */}
       <div style={{
-        minWidth: 160,
-        background: COLORS.secondary,
-        borderRadius: 8,
-        padding: 16,
+        minWidth: 168,
+        background: COLORS.sidebarBg,
+        borderRadius: 13,
+        padding: 19,
         color: COLORS.accent,
-        boxShadow: '0 4px 16px #22223b60'
+        boxShadow: '0 4px 18px #23283149',
+        border: `2px solid ${COLORS.border}`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}>
-        <div style={{ fontWeight: 700, fontSize: 22, color: COLORS.accent, marginBottom: 8 }}>
-          Score: <span style={{ color: '#fff', fontWeight: 700 }}>{score}</span>
+        <div style={{
+          fontWeight: 700,
+          fontSize: 22,
+          color: COLORS.accent,
+          marginBottom: 8,
+          textShadow: `0 2px 8px #22283190`
+        }}>
+          Score: <span style={{ color: "#fff", fontWeight: 700 }}>{score}</span>
         </div>
-        <div style={{ color: "#f2e9e4bb", fontWeight: 500, fontSize: 16, marginBottom: 4 }}>
+        <div style={{
+          color: COLORS.textSecondary,
+          fontWeight: 500,
+          fontSize: 16,
+          marginBottom: 4
+        }}>
           Level: {level + 1}
         </div>
-        <div style={{ color: "#f2e9e4bb", fontSize: 15, marginBottom: 16 }}>
+        <div style={{
+          color: COLORS.textSecondary,
+          fontSize: 15,
+          marginBottom: 16
+        }}>
           Lines: {linesCleared}
         </div>
-        <div style={{ marginTop: 10, color: "#f2e9e4ee", fontWeight: 600, fontSize: 15 }}>Next:</div>
+        <div style={{
+          marginTop: 10,
+          color: COLORS.text,
+          fontWeight: 600,
+          fontSize: 15
+        }}>
+          Next:
+        </div>
         <NextTetrominoPreview tetromino={next} />
         <ControlsHint />
       </div>
