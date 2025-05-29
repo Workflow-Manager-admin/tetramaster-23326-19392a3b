@@ -351,7 +351,9 @@ function TetraMaster() {
         padding: 18,
         borderRadius: 8,
         boxShadow: '0 6px 32px #22223bb0',
-        border: `2px solid ${COLORS['T']}`,
+        border: '5px solid var(--kavia-orange)',
+        outline: '2px solid #fff2',
+        outlineOffset: '2px',
         display: 'grid',
         gridTemplateRows: `repeat(${BOARD_HEIGHT}, 24px)`,
         gridTemplateColumns: `repeat(${BOARD_WIDTH}, 24px)`
