@@ -482,6 +482,9 @@ function NextTetrominoPreview({ tetromino }) {
       gridTemplateRows: 'repeat(4, 16px)',
       gridTemplateColumns: 'repeat(4, 16px)',
       gap: 0,
+      background: COLORS.empty,
+      borderRadius: 5,
+      border: `2px solid ${COLORS.border}`,
       margin: "9px 0 18px"
     }}>
       {grid.map((row, y) =>
@@ -491,8 +494,10 @@ function NextTetrominoPreview({ tetromino }) {
             style={{
               width: 15,
               height: 15,
-              background: cell ? COLORS[cell] : "#2c2b39",
-              border: cell ? '2px solid #fff4' : '1px solid #5555',
+              background: cell ? COLORS[cell] : COLORS.sidebarBg,
+              border: cell
+                ? `2px solid ${COLORS.border}`
+                : `1px solid ${COLORS.sidebarBg}99`,
               borderRadius: cell ? 3 : 0,
               margin: 0
             }}
@@ -507,7 +512,7 @@ function NextTetrominoPreview({ tetromino }) {
 // Hints for controls, keyboard only
 function ControlsHint() {
   return (
-    <div style={{ fontSize: 12, marginTop: 8, color: "#f2e9e480" }}>
+    <div style={{ fontSize: 12, marginTop: 8, color: "rgba(255,211,105,0.65)" }}>
       <b>Controls:</b>
       <ul style={{ paddingLeft: 18, margin: 2 }}>
         <li>←/A: Move Left</li>
